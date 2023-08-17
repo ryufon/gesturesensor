@@ -11,6 +11,10 @@ import contextlib
 
 
 def pubinitial(cameraname):
+    config.client.username_pw_set("user", "password")
+    config.client.tls_set(certfile=None,
+               keyfile=None,
+               cert_reqs=ssl.CERT_REQUIRED)
     topic = config.config['gesture']['topic'] + "/" + cameraname
     payload = {'person': '', 'gesture': ''}
     print("Publishing initial state for: " + cameraname)
