@@ -23,6 +23,10 @@ def pubinitial(cameraname):
 
 
 def pubresults(cameraname, name, gesture):
+    config.client.username_pw_set("user", "password")
+    config.client.tls_set(certfile=None,
+               keyfile=None,
+               cert_reqs=ssl.CERT_REQUIRED)
     topic = config.config['gesture']['topic'] + "/" + cameraname
     payload = {'person': name, 'gesture': gesture}
     if config.sentpayload[cameraname] != payload:
